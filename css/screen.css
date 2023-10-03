@@ -67,6 +67,31 @@
     /*  = 48px */
     --global-whitespace-xxl: calc(var(--global-whitespace) * 3);
     /*  = 72px */
+    --global-input-backgroundColor: White;
+    --global-input-color: var(--global-color-neutral-xxxx-dark);
+    --global-input-borderColor: var(--global-color-neutral-xxx-light);
+    --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
+    --global-input-focus-borderColor: var(--global-color-alpha);
+    --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+    background-color: var(--global-input-background-color);
+    color: var(--global-input-color);
+  
+}
+@media(prefers-color-scheme:dark){
+    :root{
+        --global-input-background-color: var(--global-color-neutral-xxxx-dark);
+        --global-input-color: var(--global-color-neutral-xxxx-light);
+        --global-input-borderColor: var(--global-color-neutral-xxx-dark);
+        --global-input-hover-borderColor: var(--global-color-neutral-xx-dark);
+        --global-input-focus-borderColor: var(--global-color-neutral-xxxx-light);
+        --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+        background-color: var(--global-input-background-color);
+        color: var(--global-input-color);
+        .c-logo {
+                --logo__path--1--fill: White;
+                --logo__path--2--fill: var(--logo__path--1--fill);
+                --logo__path--3--fill: var(--logo__path--1--fill);
+            }
 }
 
 /*------------------------------------*\
@@ -229,6 +254,7 @@ a:active {
 label,
 input {
     display: block;
+    width: 100%;
 }
 
 input::placeholder {
@@ -517,15 +543,15 @@ input::placeholder {
 }
 
 .c-logo__path--1 {
-    fill: var(--global-color-neutral-xxxx-dark);
+    fill: var(--logo__path--1--fill, var(--global-color-neutral-950));
 }
 
 .c-logo__path--2 {
-    fill: var(--global-color-alpha);
+    fill: var(--logo__path--2--fill, var(--global-color-primary-500));
 }
 
 .c-logo__path--3 {
-    fill: var(--global-color-alpha-x-dark);
+    fill: var(--logo__path--3--fill, var(--global-color-alpha-primary-700));
 }
 
 /*
@@ -535,7 +561,7 @@ input::placeholder {
 */
 
 .c-card {
-    background-color: White;
+    background-color: var(--global-input-background-color);
     margin-bottom: var(--global-whitespace);
     border-radius: var(--global-borderRadius);
     box-shadow: 0 0 0 var(--global-borderWidth) rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, .075);
@@ -604,13 +630,14 @@ input::placeholder {
     border: var(--global-borderWidth) solid var(--global-color-neutral-xxx-light);
     border-radius: var(--global-borderRadius);
     color: var(--global-color-neutral-xxxx-dark);
-    background-color: White;
+    background-color: var(--global-input-background-color);
     font-family: inherit;
     font-size: 16px;
     line-height: calc(var(--global-baseline) * 3);
     padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
     outline: none;
     transition: border var(--global-transition-timing-alpha);
+
 }
 
 .c-input:hover {
@@ -679,6 +706,210 @@ input::placeholder {
     background-color: var(--global-color-alpha-dark);
     box-shadow: none;
 }
+
+
+.c-option--hidden:checked+label svg {
+    /* background-color: red; */
+    display: block;
+}
+
+.c-custom-option__fake-input {
+    /* opacity: 0; */
+    
+    display: flex;
+    width: 16px;
+    height: 16px;
+    border-radius: var(--global-borderRadius);
+    border: solid var(--global-borderWidth) var(--global-color-neutral-xxx-light);
+    margin-right: 8px;
+
+}
+.c-custom-option__fake-input:hover {
+    border-color:#3385FF ;
+    box-shadow: #81ADF0 0px 0px 0px 3px ;
+
+}
+.c-custom-option__fake-input:focus {
+ 
+    border-color:#3385FF ;
+    box-shadow: #81ADF0 0px 0px 0px 3px ;
+
+}
+.c-custom-option__fake-input:active {
+    border-color: #3385FF;
+    box-shadow: #81ADF0 0px 0px 0px 3px;
+
+}
+
+.c-custom-option__fake-input--checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.c-custom-option__fake-input--radio {
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.c-custom-option {
+    display: flex;
+}
+
+.c-custom-option__fake-input--checkbox .c-custom-option__symbol {
+    width: 10px;
+    height: 10px;
+    fill: var(--global-color-alpha);
+    opacity: 0;
+
+}
+
+.c-custom-option__fake-input--radio .c-custom-option__symbol {
+    opacity: 0;
+    height: 6px;
+    width: 6px;
+    border-radius: 100%;
+    background-color: var(--global-color-alpha);
+
+}
+
+.c-option--hidden:checked+.c-custom-option {}
+
+.c-option--hidden:checked+.c-custom-option .c-custom-option__symbol {
+    /* border-radius: var(--global-borderRadius); */
+    /* border: solid var(--global-borderWidth) var(--global-color-neutral-xxx-light); */
+    /* fill: blue; */
+    opacity: 1;
+}
+
+.c-option-list {
+    margin-bottom: 24px;
+}
+
+.c-option-list__item {
+    margin-bottom: 12px;
+    
+}
+
+.c-custom-toggle__fake-input {
+    display: block;
+    width: 48px;
+    height: 24px;
+    border: solid var(--global-borderWidth) var(--global-color-neutral-xxx-light);
+    border-radius: 30px;
+    margin-right: 16px;
+    background-color: var(--global-color-neutral-xxxx-light);
+}
+.c-custom-toggle__fake-input:focus{
+    border-color: #3385FF;
+    box-shadow: #81ADF0 0px 0px 0px 3px;
+}
+.c-custom-toggle__fake-input:hover{
+
+    border-color: #3385FF;
+/*give the boxshadow this color #3385FF with 20% transparicy */
+    box-shadow: #81ADF0 0px 0px 0px 3px;
+
+}
+
+.c-custom-toggle {
+    display: flex;
+    align-items: center;
+    
+}
+
+.c-custom-toggle__fake-input::after {
+    display: block;
+    content: "";
+    border: solid var(--global-borderWidth) var(--global-color-neutral-xxx-light);
+    border-radius: 20px;
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    /* box-shadow: 5px 5px 15px var(--global-color-neutral-xx-light); */
+    transition: all var(--global-transitionTiming-alpha);
+}
+
+.c-option--hidden:checked+label .c-custom-toggle__fake-input::after {
+    transform: translateX(24px);
+    transition: all var(--global-transitionTiming-alpha);
+}
+
+.c-option--hidden:checked+label .c-custom-toggle__fake-input {
+    background-color: var(--global-color-alpha);
+}
+
+.c-toggle-list .c-toggle-list__item {
+    /* border: solid var(--global-borderWidth) var(--global-color-neutral-xxx-light); */
+    /* margin-top: 12px; */
+}
+
+.c-custom-toggle--inverted {
+    display: flex;
+    margin-right: 0;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.c-custom-toggle--inverted .c-custom-toggle__fake-input {
+    justify-content: end;    
+}
+
+.c-toggle-list__item + .c-toggle-list__item {
+    border-top: 1px solid #E2E3E7;
+    /* Voeg hier je gewenste borderstijl toe */
+    padding-top: 24px;
+    /* Voeg hier je gewenste ruimte bovenaan toe */
+}
+.c-toggle-list__item {
+    margin-bottom: 12px;
+    margin-top: 0;
+
+}
+.c-custom-select{
+    display: block;
+    position: relative;
+}
+
+.c-custom-select__symbol{
+    width: 1.5rem;
+    height: 1.5rem;
+    fill:#B5B6C0;
+    position: absolute;
+        top: 0;
+        right: 0;
+        pointer-events: none;
+    margin: 12px;
+
+}
+.c-custom-password{
+    display: block;
+    position: relative;
+}
+.c-custom-hide__symbol{
+    width: 1.5rem;
+    height: 1.5rem;
+    fill:#B5B6C0;
+    position: absolute;
+        top: 0;
+        right: 0;
+        /* pointer-events: none; */
+    margin: 12px;
+}
+
+.c-custom-option__password{
+
+}
+.c-option--hidden:checked .c-custom-hide__symbol{
+    opacity: 0;
+}
+
+/*Zorg ervoor dat .c-custom-select__symbol rechts bovenaan absoluut wordt gepositioneerd t.o.v. .c-custom-select.*/
+
 
 /*------------------------------------*\
 #UTILITIES
