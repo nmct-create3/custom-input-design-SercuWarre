@@ -576,7 +576,7 @@ input::placeholder {
 
 .c-card__footer {
     text-align: center;
-    border-top: var(--global-borderWidth) solid var(--global-color-neutral-xxx-light);
+    border-top: var(--global-borderWidth) solid var(--global-input-borderColor);
 }
 
 .c-card__title {
@@ -627,7 +627,7 @@ input::placeholder {
     -moz-appearance: none;
     appearance: none;
     width: 100%;
-    border: var(--global-borderWidth) solid var(--global-color-neutral-xxx-light);
+    border: var(--global-borderWidth) solid var(--global-input-borderColor);
     border-radius: var(--global-borderRadius);
     color: var(--global-color-neutral-xxxx-dark);
     background-color: var(--global-input-background-color);
@@ -720,7 +720,7 @@ input::placeholder {
     width: 16px;
     height: 16px;
     border-radius: var(--global-borderRadius);
-    border: solid var(--global-borderWidth) var(--global-color-neutral-xxx-light);
+    border: solid var(--global-borderWidth) var(--global-input-borderColor);
     margin-right: 8px;
 
 }
@@ -900,12 +900,20 @@ input::placeholder {
         /* pointer-events: none; */
     margin: 12px;
 }
+.c-custom-hide__symbol-1{
+    opacity: 0;
+}
 
 .c-custom-option__password{
 
 }
-.c-option--hidden:checked .c-custom-hide__symbol{
-    opacity: 0;
+.c-option--hidden:checked+label .c-custom-hide__symbol{
+    opacity: 0  ;
+   
+}
+.c-option--hidden:checked+label .c-custom-hide__symbol-1 {
+    opacity: 1;
+
 }
 
 /*Zorg ervoor dat .c-custom-select__symbol rechts bovenaan absoluut wordt gepositioneerd t.o.v. .c-custom-select.*/
