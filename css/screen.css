@@ -917,11 +917,11 @@ input::placeholder {
 
 }
 .c-option--hidden:checked+label .c-custom-hide__symbol{
-    opacity: 1  ;
+    opacity: 0  ;
    
 }
 .c-option--hidden:checked+label .c-custom-hide__symbol-1 {
-    opacity: 0;
+    opacity: 1;
 
 }
 
